@@ -262,3 +262,9 @@ var string = device.serial;
 - Android
 - OSX
 
+##发布
+
+npm publish --registry=https://registry.npmjs.org/
+
+##安装
+cordova plugin add cordova-plugin-mz-device

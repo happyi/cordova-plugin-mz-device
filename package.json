@@ -1,0 +1,33 @@
+{
+  "name": "cordova-plugin-mz-device",
+  "version": "1.0.2",
+  "description": "fork from cordova-plugin-device",
+  "cordova": {
+    "id": "cordova-plugin-mz-device",
+    "platforms": [
+      "ios",
+      "android"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/happyi/cordova-plugin-mz-device.git"
+  },
+  "keywords": [
+    "ecosystem:cordova",
+    "cordova-ios",
+    "cordova-android"
+  ],
+  "engines": [
+    {
+      "name": "cordova",
+      "version": ">=3.0.0"
+    }
+  ],
+  "author": "Wymsee",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/happyi/cordova-plugin-mz-device/issues"
+  },
+  "homepage": "https://github.com/happyi/cordova-plugin-mz-devicer#readme"
+}
