@@ -1,6 +1,6 @@
 {
   "name": "cordova-plugin-mz-device",
-  "version": "2.0.5",
+  "version": "2.0.6",
   "description": "fork from cordova-plugin-device",
   "cordova": {
     "id": "cordova-plugin-mz-device",

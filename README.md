@@ -20,6 +20,10 @@ description: Get device information.
 #         specific language governing permissions and limitations
 #         under the License.
 -->
+# 改动
+1、增加异步获取 DeviceInfo 应用市场不允许未接受协议 获取设备信息
+2、android 和 IOS 新增 bundleVersion 和 bundleAppId
+3、android 新增应用签名信息
 
 |AppVeyor|Travis CI|
 |:-:|:-:|

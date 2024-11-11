@@ -46,30 +46,37 @@ function Device() {
     this.serial = null;
     this.bundleVersion = null;
     this.signature = null;
+    this.bundleIdentifier = null;
 
     var me = this;
 
     channel.onCordovaReady.subscribe(function () {
-        me.getInfo(function (info) {
-            // ignoring info.cordova returning from native, we should use value from cordova.version defined in cordova.js
-            // TODO: CB-5105 native implementations should not return info.cordova
-            var buildLabel = cordova.version;
-            me.available = true;
-            me.platform = info.platform;
-            me.version = info.version;
-            me.uuid = info.uuid;
-            me.cordova = buildLabel;
-            me.model = info.model;
-            me.isVirtual = info.isVirtual;
-            me.manufacturer = info.manufacturer || 'unknown';
-            me.serial = info.serial || 'unknown';
-            me.bundleVersion = info.bundleVersion || 'unknown';
-            me.signature = info.signature || 'unknown';
+
+        if(!!window.localStorage["private"]){
+            me.getInfo(function (info) {
+                // ignoring info.cordova returning from native, we should use value from cordova.version defined in cordova.js
+                // TODO: CB-5105 native implementations should not return info.cordova
+                var buildLabel = cordova.version;
+                me.available = true;
+                me.platform = info.platform;
+                me.version = info.version;
+                me.uuid = info.uuid;
+                me.cordova = buildLabel;
+                me.model = info.model;
+                me.isVirtual = info.isVirtual;
+                me.manufacturer = info.manufacturer || 'unknown';
+                me.serial = info.serial || 'unknown';
+                me.bundleVersion = info.bundleVersion || 'unknown';
+                me.signature = info.signature || 'unknown';
+                me.bundleIdentifier = info.bundleIdentifier || '';
+                channel.onCordovaInfoReady.fire();
+            }, function (e) {
+                me.available = false;
+                utils.alert('[ERROR] Error initializing Cordova: ' + e);
+            });
+        }else {
             channel.onCordovaInfoReady.fire();
-        }, function (e) {
-            me.available = false;
-            utils.alert('[ERROR] Error initializing Cordova: ' + e);
-        });
+        }
     });
 }
 

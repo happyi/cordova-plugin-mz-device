@@ -84,6 +84,7 @@ public class Device extends CordovaPlugin {
             r.put("serial", this.getSerialNumber());
             r.put("bundleVersion", this.getAppVersion());
             r.put("signature", this.getSingInfo());
+            r.put("bundleIdentifier", this.getPackageName());
             callbackContext.success(r);
         } else {
             return false;
@@ -182,6 +183,16 @@ public class Device extends CordovaPlugin {
         try {
             PackageManager packageManager = this.cordova.getActivity().getPackageManager();
             return packageManager.getPackageInfo(this.cordova.getActivity().getPackageName(), 0).versionName;
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return "N/A";
+    }
+
+    public String getPackageName() {
+        try {
+            PackageManager packageManager = this.cordova.getActivity().getPackageManager();
+            return this.cordova.getActivity().getPackageName();
         }catch (Exception e){
             e.printStackTrace();
         }
