@@ -97,7 +97,7 @@
 - (NSDictionary*)deviceProperties
 {
     UIDevice* device = [UIDevice currentDevice];
-
+    NSString *bundleIdentifier= [[NSBundle mainBundle]bundleIdentifier];
     return @{
              @"manufacturer": @"Apple",
              @"model": [device modelVersion],
@@ -106,6 +106,7 @@
              @"uuid": [self uniqueAppInstanceIdentifier:device],
              @"cordova": [[self class] cordovaVersion],
              @"bundleVersion": [self getVersionNumber:device],
+             @"bundleIdentifier": bundleIdentifier,
              @"isVirtual": @([self isVirtual])
              };
 }
