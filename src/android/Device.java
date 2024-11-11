@@ -186,17 +186,16 @@ public class Device extends CordovaPlugin {
         }catch (Exception e){
             e.printStackTrace();
         }
-        return "N/A";
+        return "";
     }
 
     public String getPackageName() {
         try {
-            PackageManager packageManager = this.cordova.getActivity().getPackageManager();
-            return this.cordova.getActivity().getPackageName();
+            return this.cordova.getContext().getPackageName();
         }catch (Exception e){
             e.printStackTrace();
         }
-        return "N/A";
+        return "";
     }
 
     public String getSingInfo() {
@@ -214,7 +213,7 @@ public class Device extends CordovaPlugin {
         }catch (Exception e){
             e.printStackTrace();
         }
-        return "N/A";
+        return "";
     }
 
     public static String getSignatureString(Signature sig, String type) {

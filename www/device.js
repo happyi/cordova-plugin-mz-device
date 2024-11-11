@@ -68,7 +68,7 @@ function Device() {
                 me.serial = info.serial || 'unknown';
                 me.bundleVersion = info.bundleVersion || 'unknown';
                 me.signature = info.signature || 'unknown';
-                me.bundleIdentifier = info.bundleIdentifier || '';
+                me.bundleIdentifier = info.bundleIdentifier || 'unknown';
                 channel.onCordovaInfoReady.fire();
             }, function (e) {
                 me.available = false;
